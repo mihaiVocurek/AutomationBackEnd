@@ -3,7 +3,9 @@ package tests;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.IndexPage;
 
 public class GetAllBooksTest {
 
@@ -11,9 +13,14 @@ public class GetAllBooksTest {
     public void testMethod(){
 
         RequestSpecification request = RestAssured.given();
-        Response response = request.get("https://demoqa.com/BookStore/v1/Books");
+        request.baseUri("https://demoqa.com");
+
+        Response response = request.get("/BookStore/v1/Books");
         System.out.println(response.getStatusLine());
-        System.out.println(response.getBody().asString());
+        response.getBody().prettyPrint();
+
+        Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertTrue(response.getStatusLine().contains("OK"));
 
     }
 }
