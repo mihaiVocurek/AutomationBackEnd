@@ -1,5 +1,6 @@
 package tests;
 
+import backend.services.BookStoreService;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -11,7 +12,7 @@ public class GetAllBooksTest {
     @Test
     public void testMethod(){
 
-        RequestSpecification request = RestAssured.given();
+        /*RequestSpecification request = RestAssured.given();
         request.baseUri("https://demoqa.com");
 
         Response response = request.get("/BookStore/v1/Books");
@@ -19,7 +20,10 @@ public class GetAllBooksTest {
         response.getBody().prettyPrint();
 
         Assert.assertEquals(response.getStatusCode(), 200);
-        Assert.assertTrue(response.getStatusLine().contains("OK"));
+        Assert.assertTrue(response.getStatusLine().contains("OK"));*/
+
+        BookStoreService bookStoreService = new BookStoreService("https://demoqa.com");
+        bookStoreService.getAllBooks();
 
     }
 }

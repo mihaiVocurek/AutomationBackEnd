@@ -17,5 +17,4 @@ public class RestClient {
     public RequestSpecification getRequestSpecification(){
         return requestSpecification;
     }
-
 }
