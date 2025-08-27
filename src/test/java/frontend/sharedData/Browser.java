@@ -1,4 +1,4 @@
-package sharedData;
+package frontend.sharedData;
 
 public interface Browser {
 

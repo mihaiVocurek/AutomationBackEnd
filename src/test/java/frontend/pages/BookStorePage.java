@@ -1,9 +1,10 @@
-package pages;
+package frontend.pages;
 
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class BookStorePage extends BasePage{
 
@@ -32,6 +33,9 @@ public class BookStorePage extends BasePage{
     @FindBy(id = "newUser")
     WebElement newUserButton;
 
+    @FindBy(id = "name")
+    WebElement invalidLoginMessage;
+
     public void interactWithLoginSubmenu(){
         elementHelper.clickJSElement(loginButton);
         LoggerUtility.infoLog("User clicks on the Login button");
@@ -56,4 +60,7 @@ public class BookStorePage extends BasePage{
         LoggerUtility.infoLog("User is successfully logged in");
     }
 
+    public void validateLogin(){
+        Assert.assertEquals(invalidLoginMessage.getText(),"Invalid username or password!");
+    }
 }

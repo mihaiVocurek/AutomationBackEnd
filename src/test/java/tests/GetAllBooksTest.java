@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.IndexPage;
 
 public class GetAllBooksTest {
 

@@ -1,4 +1,4 @@
-package pages;
+package frontend.pages;
 
 import loggerUtility.LoggerUtility;
 import org.openqa.selenium.WebDriver;
